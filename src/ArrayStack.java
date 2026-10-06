@@ -6,6 +6,11 @@ public class ArrayStack<T> {
     private int top;
 
     //constructor
+    public ArrayStack() {
+        this.stack = new Object[8]; //default at capacity=8
+        this.top = -1;
+    }
+
     public ArrayStack(int capacity) {
         this.stack = new Object[capacity];
         this.top = -1; //when the stack has 0 items, the top doesn't exist, which will be represented by -1
@@ -48,6 +53,8 @@ public class ArrayStack<T> {
         this.top++; //increment the top
     }
 
+    @SuppressWarnings("unchecked")
+
     public T pop() {
         /*check the top to see if its empty. store the value at the top, then remove it by setting it to null, then
         return the stored value and decrement top
@@ -63,6 +70,8 @@ public class ArrayStack<T> {
         this.top--;
         return temp;
     }
+
+    @SuppressWarnings("unchecked")
 
     public T peek() {
         /*the exact same as pop() but without removing or decrementing the top value and top
