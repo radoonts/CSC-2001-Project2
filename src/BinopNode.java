@@ -12,13 +12,14 @@ public class BinopNode implements AST {
     }
 
     //methods
-    @Override
-    public double eval() {
-        /*
+    /*
         purpose: the mathematical calculation of two expressions and an operator.
         input: none
         Output: a double value which represents the operation between two expressions.
-         */
+     */
+    @Override
+    public double eval() {
+
         double leftChild = left.eval();
         double rightChild = right.eval();
 

@@ -18,13 +18,12 @@ public class ArrayStack<T> {
 
     //methods
     //HELPER FUNCTIONALITY
-    private void doubleCapacity() {
-        /*this method will be called as a helper functionality to double the capacity of the array. this will create
+    /*this method will be called as a helper functionality to double the capacity of the array. this will create
         a temporary array with double the length of the stack, then add all the elements to the new larger stack
         [1,2,3,4,5] -> doubleCapacity() -> [1,2,3,4,5,null,null,null,null,null]
         ["Dog", "Cat"] -> doubleCapacity() -> ["Dog", "Cat", null, null]
-        */
-
+    */
+    private void doubleCapacity() {
         int newCapacity;
         //check if capacity is 0, if it is then newCapacity would be 1, not 0 again
         if (this.stack.length == 0) newCapacity = 1;
@@ -39,12 +38,14 @@ public class ArrayStack<T> {
         this.stack = tempStack;
     }
 
-    public void push(T value) {
-        /*check if the capacity has been reached, if not then add to the top. If capacity has been reached call
+    /*
+        check if the capacity has been reached, if not then add to the top. If capacity has been reached call
         doubleCapacity() then add to the top of the stack
         [1,2,3,null,null] -> push 4 -> [1,2,3,4,null]
         [1,2] -> push 3 -> [1,2,3,null]
-        */
+    */
+    public void push(T value) {
+
 
         if(this.size() >= this.stack.length) this.doubleCapacity();
 
@@ -55,13 +56,13 @@ public class ArrayStack<T> {
 
     @SuppressWarnings("unchecked")
 
-    public T pop() {
-        /*check the top to see if its empty. store the value at the top, then remove it by setting it to null, then
+    /*
+        check the top to see if its empty. store the value at the top, then remove it by setting it to null, then
         return the stored value and decrement top
         [1,2,3] -> pop -> [1,2,null]
         [null,null] -> pop -> NoSuchElementException
-         */
-
+     */
+    public T pop() {
         if(this.isEmpty()) throw new NoSuchElementException(); // top = -1 meaning the stack is empty
 
         //store the value at top then set to null
@@ -73,30 +74,29 @@ public class ArrayStack<T> {
 
     @SuppressWarnings("unchecked")
 
-    public T peek() {
-        /*the exact same as pop() but without removing or decrementing the top value and top
+    /*
+        the exact same as pop() but without removing or decrementing the top value and top
         [1,2,3] -> peek -> 3
-         */
-
+     */
+    public T peek() {
         if(this.isEmpty()) throw new NoSuchElementException(); // top = -1 meaning the stack is empty
         return (T) this.stack[this.top];
     }
 
-    public boolean isEmpty() {
-        /*check if top = -1, if so then return true, if not then return false
+    /*
+        check if top = -1, if so then return true, if not then return false
         [1] -> isEmpty -> false
         [null] -> isEmpty -> true
-         */
-
+     */
+    public boolean isEmpty() {
         return this.top == -1;
     }
 
-    public int size() {
-        /* returns top + 1 which would equal the size of the stack no matter what
+     /* returns top + 1 which would equal the size of the stack no matter what
         [1,2,3] -> size -> 3
         [null] -> size -> 0
-         */
-
+     */
+    public int size() {
         return this.top + 1;
     }
 }
