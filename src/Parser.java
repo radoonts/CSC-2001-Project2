@@ -46,8 +46,7 @@ public class Parser {
         return switch(operator) {
             case "^" -> 3;
             case "*", "/" -> 2;
-            case "+", "-" -> 1;
-            default -> -1;
+            default -> 1;
         };
     }
 

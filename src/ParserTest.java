@@ -3,6 +3,14 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ParserTest {
+    //parser can be constructed
+    @Test
+    void parserCanBeConstructed() {
+        Parser parser = new Parser();
+
+        assertNotNull(parser);
+    }
+
     //parsePostfix() tests
     @Test
     void parsePostfixAddition() {
